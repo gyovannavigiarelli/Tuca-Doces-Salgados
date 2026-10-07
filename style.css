@@ -1,189 +1,525 @@
-.banner-cookies {
-    position: fixed; /* Mantém a barra fixa mesmo ao rolar a página */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.95); /* Fundo escuro com leve transparência */
-    color: #000000;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999; /* Garante que fique sobre todos os outros elementos */
-    font-size: 14px;
+:root {
+    --red: #D32F2F;
+    --red-dark: #B71C1C;
+    --pink-soft: #FCE4EC;
+    --pink-light: #FFF0F5;
+    --text: #333333;
+    --white: #FFFFFF;
 }
 
-/* Botão de aceite */
-.btn-cookies {
-    background-color: #f8d7da;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap; /* Impede que o texto do botão quebre em duas linhas */
-    transition: background-color 0.3s ease;
-}
-
-.btn-cookies:hover {
-    background-color: #ebbfc2;
-}
-
-/* Classe utilitária para ocultar o banner */
-.oculto {
-    display: none !important;
-
-}  
-/* REGRAS GERAIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
 body {
-    background-color: #fff9f5; /* Fundo bege bem claro */
-    color: #333;
-    text-align: center;
+    background-color: var(--pink-light);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-/* 1. TOPO DO SITE */
-.topo {
+/* Regra Global para Imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-white { background-color: var(--white); }
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--red);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.mt-30 { margin-top: 30px; }
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover { background: var(--red-dark); }
+.btn-sm { padding: 6px 16px; font-size: 0.9rem; }
+.full-width { width: 100%; }
+
+/* Cards Genéricos */
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-highlight {
+    background: var(--pink-light);
+    border-left: 5px solid var(--red);
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background: white;
-    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
 }
 
-.topo h2 { color: #d93848; }
+.logo { height: 45px; }
 
-.btn-top {
-    background: #4f8a67;
-    color: white;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 15px;
-    font-weight: bold;
-}
-
-/* 2. ÁREA PRINCIPAL */
-.principal {
-    padding: 30px 15px;
-}
-
-.selo {
-    background: #f8d7da;
-    color: #842029;
-    padding: 4px 10px;
-    border-radius: 10px;
-    font-size: 12px;
-}
-
-.principal h1 {
-    font-size: 22px;
-    margin: 15px 0;
-}
-
-.foto-capa {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
-/* 3. VITRINE DE PRODUTOS */
-.produtos {
-    padding: 20px 15px;
-}
-
-/* Organiza os produtos em colunas no PC e em fila no celular */
-.lista-produtos {
+nav ul {
     display: flex;
-    flex-direction: column; /* No celular fica um embaixo do outro */
+    list-style: none;
     gap: 15px;
-    margin-top: 15px;
 }
 
-.cartao {
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #eee;
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
 }
 
-.cartao img {
+nav a:hover { color: var(--red); }
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(252, 228, 236, 0.8), rgba(252, 228, 236, 0.8)),
+                url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1500&q=80') center/cover;
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.hero-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.hero-card h1 { color: var(--red); margin-bottom: 10px; }
+.hero-card p { margin-bottom: 20px; }
+
+/* Grid Genérico */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* ==========================================================================
+   Flip Cards 3D (Produtos)
+   ========================================================================== */
+.cards-flip-grid {
+    justify-items: center;
+}
+
+.card-container {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
+    max-width: 280px;
+    height: 340px;
+    perspective: 1000px;
 }
 
-/* 4. FORMULÁRIO DE CONTATO */
-.contato {
-    padding: 30px 15px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-    margin: 15px auto 0 auto;
-}
-
-input, textarea {
+.card-inner {
+    position: relative;
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-button {
-    background: #fcd9dc;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    border-radius: 16px;
     cursor: pointer;
 }
 
-/* 5. RODAPÉ */
-footer {
-    background: #222;
-    color: white;
+.card-container:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-front {
+    background-color: var(--pink-light);
+    border: 2px solid var(--pink-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-front-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.card-front-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--red);
+}
+
+.card-back {
+    background: var(--white);
+    border: 2px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    transform: rotateY(180deg);
+}
+
+.card-back h3 {
+    font-size: 1.3rem;
+    color: var(--red);
+}
+
+.card-back p {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Carrossel Horizontal (Slider Superior - Corrigido para 10 imagens)
+   ========================================================================== */
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 380px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(211, 47, 47, 0.15);
+}
+
+.slider-track {
+    display: flex;
+    width: 1000%; /* 10 fotos * 100% da área visível */
+    height: 100%;
+    animation: autoSlide 30s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.slider-wrapper:hover .slider-track {
+    animation-play-state: paused;
+}
+
+.slide-img {
+    width: 10%; /* 100% / 10 fotos = cada foto ocupa a largura total visível */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@keyframes autoSlide {
+    0%, 7%    { transform: translateX(0%); }
+    10%, 17%  { transform: translateX(-10%); }
+    20%, 27%  { transform: translateX(-20%); }
+    30%, 37%  { transform: translateX(-30%); }
+    40%, 47%  { transform: translateX(-40%); }
+    50%, 57%  { transform: translateX(-50%); }
+    60%, 67%  { transform: translateX(-60%); }
+    70%, 77%  { transform: translateX(-70%); }
+    80%, 87%  { transform: translateX(-80%); }
+    90%, 97%  { transform: translateX(-90%); }
+    100%      { transform: translateX(0%); }
+}
+
+/* ==========================================================================
+   Grid & Lightbox 100% CSS (Galeria em Grade)
+   ========================================================================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.gallery-caption-preview {
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--red);
+    font-size: 0.9rem;
+    background: var(--white);
+}
+
+/* Modal Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.85);
+    transition: transform 0.4s ease;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox:target .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-img-wrapper {
+    width: 100%;
+    max-height: 380px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lightbox-content img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-details {
+    padding: 20px 25px;
+    text-align: center;
+    width: 100%;
+    background: var(--white);
+}
+
+.lightbox-details h3 {
+    color: var(--red);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.lightbox-details p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--white);
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+    background: var(--red);
+}
+
+.lightbox-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Formulário de Contato */
+.form-contato {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contato label {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font: inherit;
+}
+
+/* Rodapé */
+.footer {
+    background: var(--red);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a { color: var(--white); text-decoration: none; }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--white);
     padding: 15px;
-    font-size: 12px;
-    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-/* MAGIA DA RESPONSIVIDADE (Ajuste para PC) */
-@media (min-width: 600px) {
-    /* Quando a tela for maior que 600px (computador/tablet) */
-    .lista-produtos {
-        flex-direction: row; /* Coloca os cards lado a lado */
-        justify-content: center;
+.hidden { display: none; }
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .nav-container, .footer-content, .cookie-banner {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .cartao {
-        width: 30%; /* Cada card ocupa 30% da largura */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
     }
 
-    .principal h1 {
-        font-size: 32px;
+    .gallery-item img {
+        height: 130px;
     }
-}
-/* 2. Banner Principal */
-.banner-principal {
-background-color: #fdd4d4;
-color: #ffffff;
-text-align: center;
-padding: 60px 20px;
+
+    .slider-wrapper {
+        height: 250px;
+    }
+
+    .lightbox-img-wrapper,
+    .lightbox-content img {
+        max-height: 250px;
+    }
 }
