@@ -1,84 +1,244 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuca Doces & Salgados</title>
-
-    <!-- LINHA DO FAVICON ADICIONADA AQUI: -->
-    <link rel="icon" href="Tuca.png" <\link>
-
-    <!-- Conecta o HTML ao arquivo de estilo CSS -->
+    <link rel="icon" href="Tuca.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="banner-cookies" class="banner-cookies">
-    <p>
-        Utilizamos cookies para personalizar sua experiência. Ao continuar navegando, você concorda com a nossa política.
-    </p>
-    <button id="btn-aceitar-cookies" class="btn-cookies">Entendi e Aceito</button>
-</div> 
 
-    <section class="banner-principal">
-<h1>Bem-vindo à Nosso Site de Confeitaria e Padaria</h1>
-<h3>Aqui mostraremos um pouco de nosso trabalho</h3>
-</section> 
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#hero"><img src="Tuca.png" alt="Logo Tuca" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#historia">Quem Somos</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 2. APRESENTAÇÃO PRINCIPAL -->
-    <section class="principal">
-        <span class="selo">Atendimento Rápido</span>
-        <h1>Doces e salgados para suas festas, confraternização, comemorações e tudo mais!</h1>
-        <p>Receitas artesanais feitas com carinho para a sua festa ou evento.</p>
-        
-        <!-- Imagem de capa -->
-        <img src="https://scontent-phx1-1.xx.fbcdn.net/v/t39.30808-6/469909352_1109163524096749_7424418552363845406_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vW2eYlEPDIkQ7kNvwHlBI1y&_nc_oc=AdpH6sDFAif3Y1mbA__ZxxuqKQbmn0Ub7E3Ph53v9qpaI8wfE2Oo0SBmu6OQmQqgke8&_nc_zt=23&_nc_ht=scontent-phx1-1.xx&_nc_gid=RWiv1kiU7q8vq3GsJNsZEw&_nc_ss=79289&oh=00_AQOi77Cx7_U-t-x6UAU4VP-4QbnePue0bsXy5sh8PygkpA&oe=6AC3397D" alt="Bolo de morango" class="foto-capa">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <div class="hero-card">
+            <h1>Aventuras Saborosas para sua Mesa</h1>
+            <p>Delícias artesanais feitas com carinho e o verdadeiro sabor caseiro para seus momentos especiais.</p>
+            <a href="#contato" class="btn">Faça seu Pedido Agora</a>
+        </div>
     </section>
 
-    <!-- 3. VITRINE DE PRODUTOS -->
-    <section class="produtos">
-        <h2>Nossos Produtos</h2>
+    <!-- Quem Somos -->
+    <section id="historia" class="section">
+        <div class="container">
+            <h2 class="title">Quem Somos</h2>
+            <div class="card card-highlight">
+                <p>A <strong>Tuca Doces & Salgados</strong> nasceu da paixão de transformar receitas de família em memórias inesquecíveis, com ingredientes selecionados e carinho em cada preparo.</p>
+                <p>Fazemos parte de momentos especiais, do café da tarde a grandes comemorações, unindo tradição, frescor e um sabor único.</p>
+            </div>
+        </div>
+    </section>
 
-        <div class="lista-produtos">
+    <!-- Produtos com Flip Cards 3D -->
+    <section id="produtos" class="section bg-white">
+        <div class="container">
+            <h2 class="title">Nossas Delícias</h2>
+            <p class="subtitle">Passe o mouse (ou toque) nos cards para ver os detalhes</p>
             
-            <!-- Cartão 1 -->
-            <div class="cartao">
-                <img src="https://scontent-phx1-1.xx.fbcdn.net/v/t1.6435-9/198324646_330937485252694_7998603186077486453_n.jpg?stp=dst-jpg_tt6&cstp=mx528x960&ctp=s528x960&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ZGFu76Ub4GMQ7kNvwEaaYzV&_nc_oc=AdpFZz30Flg0CPTn2_hLq8Li5JJVWdChMo7YASwjFVmtuR994Vex7gsHUh0CSlmAIaE&_nc_zt=23&_nc_ht=scontent-phx1-1.xx&_nc_gid=A921DxMvIkGz8oXSbfa5sw&_nc_ss=79289&oh=00_AQMpVsl1ZzQ7Fuc6zUqRH0BAJ0wA6i0gDezDMdXApANTbA&oe=6AE4C257" alt="Bolos">
-                <h3>Bolos & Tortas</h3>
-                <p>Doces artesanais para festas</p>
-            </div>
+            <div class="grid cards-flip-grid">
+                
+                <!-- Card 1: Bolos Festivos -->
+                <div class="card-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="card-front-icon">🎂</span>
+                            <div class="card-front-title">Bolos Festivos</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Bolos Festivos</h3>
+                            <p>Bolos fofinhos e personalizados com recheios cremosos e acabamento impecável para sua festa.</p>
+                            <a href="#contato" class="btn">Encomendar</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Cartão 2 -->
-            <div class="cartao">
-                <img src="https://scontent-phx1-1.xx.fbcdn.net/v/t39.30808-6/469753787_1109163647430070_7919441794316520081_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=9DGY_MbPxJoQ7kNvwEZgvHR&_nc_oc=AdoL9NxEEuueQjiibhKT0UlWgCE5pYQb13eIoTzcI_y8icbF58hDwS3dvJzVQhAdTWY&_nc_zt=23&_nc_ht=scontent-phx1-1.xx&_nc_gid=_zivwQdC0iO3WKV-cESXZw&_nc_ss=79289&oh=00_AQO1CoN13HZJSyFHOujh7ypCU2HU0ivUMa3gI0R5dZuKjA&oe=6AC32FA3" alt="Salgados">
-                <h3>Salgados de Festa</h3>
-                <p>coxinhas.</p>
-            </div>
+                <!-- Card 2: Doces Finos -->
+                <div class="card-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="card-front-icon">🍫</span>
+                            <div class="card-front-title">Doces Finos</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Doces Finos</h3>
+                            <p>Brigadeiros gourmet, beijinhos e opções refinadas para dar um toque especial ao seu evento.</p>
+                            <a href="#contato" class="btn">Encomendar</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Cartão 3 -->
-            <div class="cartao">
-                <img src="https://scontent-phx1-1.xx.fbcdn.net/v/t39.30808-6/469867364_1109163630763405_9094730140859014863_n.jpg?stp=dst-jpg_tt6&cstp=mx720x718&ctp=s720x718&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=e9XTtmLwbNcQ7kNvwElhKlN&_nc_oc=AdofiHFAjBgAEN0Fa-wA9cvyX0COyKJfymbnmnsu2IPsn9wIk5QTD8BxqqHj2CX0hzo&_nc_zt=23&_nc_ht=scontent-phx1-1.xx&_nc_gid=gs-ZWPOt8cPtJtRcdC_-DQ&_nc_ss=79289&oh=00_AQNQn_uwUmk90EdkbLQ2lEngHRo7-OchEoMq73bc5UF_dA&oe=6AC33092" alt="Docinhos">
-                <h3>Brigadeiros Gourmet</h3>
-                <p>Feitos com ingrediente de qualidade.</p>
+                <!-- Card 3: Salgadinhos -->
+                <div class="card-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="card-front-icon">🥐</span>
+                            <div class="card-front-title">Salgadinhos</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Salgadinhos</h3>
+                            <p>Coxinhas crocantes, empadinhas, assados e fritos preparados no dia, sempre quentinhos.</p>
+                            <a href="#contato" class="btn">Encomendar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria (Carrossel + Grid Lightbox) -->
+    <section id="galeria" class="section">
+        <div class="container">
+            <h2 class="title">Galeria de Sabores</h2>
+            
+            <!-- Carrossel Horizontal em Destaque (10 imagens) -->
+            <div class="slider-wrapper">
+                <div class="slider-track">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1WvDCJ3aikwll-dukWz9g9tY8_V9x9oWsXOtjwxSiXtKNQpicTEu6SF0&s=10" alt="Torta Especial de Morango">
+                    <img class="slide-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Torta Holandesa Cremosa">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU5MPp23nDsFR3aaH3mRDTY93fVX4cjA0NqiiXe5gSFtcd1ey6aBybChum&s=10" alt="Bolo de Festa Recheado">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEWOK3hYv5Zn3maXmTTirmRF2awO1SfYrkkdriDENfI6QOrYVNn85h5H8&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeAQ5i55UKOAm3e8rXPaAPYtMK2g7VfHuEq39BUBXYU6zydJ92xT_l08NB&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZSj5PV9N9gbEr4VkVC9FnrORwTLNvsMePsSZ-kw7XPw&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfVJxFQgt-eRM8c1p2WJEP7BDk8nQMmPofr1-FlPS1uvtdn5upyg9rIBs&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC3Rb4Fne4yIXJEtIH_DJTKAOI17Spieuw3loPuHOkFJmgMgBFADBpNxI2&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUoP92YMvVzGD9FgChgKJEwga14OMyC0NIEVfUdOjJJ79Ge2orQikYaBez&s=10" alt="Cento de Salgadinhos Variados">
+                    <img class="slide-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToeCBhT7t9vJ_NvkIsZVYNTp1CbzZ6yJiczzlfiXbC9Q&s=10" alt="Cento de Salgadinhos Variados">
+                </div>
+            </div>
+<P> <BR> <BR> <BR> <BR> </P>
+            <!-- Grid Lightbox 100% CSS -->
+            <div class="gallery mt-30">
+                <a href="#img1" class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1WvDCJ3aikwll-dukWz9g9tY8_V9x9oWsXOtjwxSiXtKNQpicTEu6SF0&s=10" alt="Torta Especial de Morango">
+                    <div class="gallery-caption-preview">Torta de Morango</div>
+                </a>
+                <a href="#img2" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Torta Holandesa Cremosa">
+                    <div class="gallery-caption-preview">Torta Holandesa</div>
+                </a>
+                <a href="#img3" class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU5MPp23nDsFR3aaH3mRDTY93fVX4cjA0NqiiXe5gSFtcd1ey6aBybChum&s=10" alt="Bolo de Festa Recheado">
+                    <div class="gallery-caption-preview">Bolo de Festa</div>
+                </a>
+                <a href="#img4" class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEWOK3hYv5Zn3maXmTTirmRF2awO1SfYrkkdriDENfI6QOrYVNn85h5H8&s=10" alt="Cento de Salgadinhos Variados">
+                    <div class="gallery-caption-preview">Salgadinhos</div>
+                </a>
             </div>
 
         </div>
     </section>
 
-    <!-- 4. CONTATO E ENCOMENDA -->
-    <section class="contato" id="contato">
-        <h2>Faça seu Pedido</h2>
-        <form>
-            <input type="text" placeholder="Seu nome" required>
-            <input type="tel" placeholder="Seu WhatsApp" required>
-            <textarea placeholder="O que você gostaria de encomendar?"></textarea>
-            <button type="submit">Enviar Pedido</button>
-        </form>
+    <!-- Lightbox Modais -->
+    <div class="lightbox" id="img1">
+        <a href="#galeria" class="lightbox-overlay"></a>
+        <div class="lightbox-content">
+            <a href="#galeria" class="close-btn">&times;</a>
+            <div class="lightbox-img-wrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1WvDCJ3aikwll-dukWz9g9tY8_V9x9oWsXOtjwxSiXtKNQpicTEu6SF0&s=10" alt="Torta Especial de Morango">
+            </div>
+            <div class="lightbox-details">
+                <h3>Torta Especial de Morango</h3>
+                <p>Massa leve e crocante recheada com creme patissier suave, coberta com morangos frescos selecionados e uma delicada geleia artesanal.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="img2">
+        <a href="#galeria" class="lightbox-overlay"></a>
+        <div class="lightbox-content">
+            <a href="#galeria" class="close-btn">&times;</a>
+            <div class="lightbox-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Torta Holandesa Cremosa">
+            </div>
+            <div class="lightbox-details">
+                <h3>Torta Holandesa Cremosa</h3>
+                <p>Clássico creme holandês feito com nata e leite condensado, base de biscoito e uma generosa camada de ganache de chocolate meio amargo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="img3">
+        <a href="#galeria" class="lightbox-overlay"></a>
+        <div class="lightbox-content">
+            <a href="#galeria" class="close-btn">&times;</a>
+            <div class="lightbox-img-wrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU5MPp23nDsFR3aaH3mRDTY93fVX4cjA0NqiiXe5gSFtcd1ey6aBybChum&s=10" alt="Bolo de Festa Recheado">
+            </div>
+            <div class="lightbox-details">
+                <h3>Bolo de Festa Personalizado</h3>
+                <p>Massa pão de ló de chocolate extra macia com recheio duplo de brigadeiro gourmet e morangos picados. Decoração especial sob encomenda.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="img4">
+        <a href="#galeria" class="lightbox-overlay"></a>
+        <div class="lightbox-content">
+            <a href="#galeria" class="close-btn">&times;</a>
+            <div class="lightbox-img-wrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEWOK3hYv5Zn3maXmTTirmRF2awO1SfYrkkdriDENfI6QOrYVNn85h5H8&s=10" alt="Cento de Salgadinhos Variados">
+            </div>
+            <div class="lightbox-details">
+                <h3>Salgadinhos para Festa</h3>
+                <p>Variedade de fritos e assados: coxinhas de frango com requeijão, bolinhas de queijo, kibe e empadinhas de palmito. Fritos na hora da entrega.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <section id="contato" class="section bg-white">
+        <div class="container">
+            <h2 class="title">Peça um Orçamento</h2>
+            <form class="card form-contato">
+                <label>Nome Completo
+                    <input type="text" placeholder="Seu nome" required>
+                </label>
+                <label>E-mail
+                    <input type="email" placeholder="seu@email.com" required>
+                </label>
+                <label>Data do Evento
+                    <input type="date" required>
+                </label>
+                <label>Detalhes do Pedido
+                    <textarea rows="4" placeholder="Descreva os produtos e quantidade desejada"></textarea>
+                </label>
+                <button type="submit" class="btn full-width">Enviar Pedido</button>
+            </form>
+        </div>
     </section>
 
-    <!-- 5. RODAPÉ -->
-    <footer>
-        <p>© 2026 Dulce Doces & Salgados</p>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 Tuca Doces & Salgados</p>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener">📱 Siga no Instagram</a>
+        </div>
     </footer>
 
+    <!-- Banner Cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Utilizamos cookies para melhorar sua experiência no site.</p>
+        <button id="accept-cookies" class="btn btn-sm">Aceitar</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
