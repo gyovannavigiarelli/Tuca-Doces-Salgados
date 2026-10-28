@@ -1,0 +1,42 @@
+[
+  {
+    "pergunta": "🎂 Como encomendar um bolo?",
+    "keywords": ["encomendar", "comprar", "pedir", "fazer pedido", "encomenda"],
+    "resposta": "Para encomendar, escolha o **sabor**, o **tamanho (kg)** e a **data de entrega**. Aceitamos encomendas com pelo menos **48 horas de antecedência**."
+  },
+  {
+    "pergunta": "📅 Como agendar a data de entrega ou retirada?",
+    "keywords": ["agendar", "agenda", "data", "retirada", "entrega", "agendamento"],
+    "resposta": "O agendamento é feito no momento da encomenda. Informe o dia e o horário desejado (**Segunda a Sábado, das 09h às 18h**)."
+  },
+  {
+    "pergunta": "🍰 Quais são os sabores disponíveis?",
+    "keywords": ["sabores", "sabor", "cardapio", "opcoes", "recheio"],
+    "resposta": "Nossos campeões de vendas são: **Ninho com Nutella**, **Brigadeiro Gourmet**, **Red Velvet**, **Doce de Leite com Nozes** e **Massa de Baunilha com Frutas Vermelhas**."
+  },
+  {
+    "pergunta": "📐 Como calcular o tamanho do bolo?",
+    "keywords": ["tamanho", "peso", "quilo", "kg", "fatias", "pessoas", "tamanhos"],
+    "resposta": "Calculamos **100g de bolo por pessoa**. Exemplo:\n- **1,5 kg**: serve ~15 pessoas\n- **2,0 kg**: serve ~20 pessoas\n- **3,0 kg**: serve ~30 pessoas"
+  },
+  {
+    "pergunta": "💳 Quais são as formas de pagamento?",
+    "keywords": ["pagamento", "pagar", "pix", "cartao", "sinal", "entrada"],
+    "resposta": "Pedimos um **sinal de 50%** no agendamento (via Pix) para confirmar o pedido. O restante (50%) é pago na **retirada ou entrega** (Pix ou Cartão)."
+  },
+  {
+    "pergunta": "🚗 Vocês fazem entrega a domicílio?",
+    "keywords": ["entrega", "entregam", "frete", "taxa", "delivery", "buscar"],
+    "resposta": "Sim! Entregamos via Uber Flash ou entregador próprio. A **taxa de entrega** é calculada de acordo com o seu endereço."
+  },
+  {
+    "pergunta": "❌ Como cancelar ou alterar meu agendamento?",
+    "keywords": ["cancelar", "cancelamento", "mudar", "alterar", "adiar"],
+    "resposta": "Alterações de data ou cancelamentos devem ser feitos com no mínimo **24 horas de antecedência**. Após esse prazo, o valor do sinal não é reembolsado."
+  },
+  {
+    "pergunta": "🎨 Vocês fazem bolos personalizados / temáticos?",
+    "keywords": ["personalizado", "tema", "topo", "decoracao", "chantininho", "pasta americana"],
+    "resposta": "Sim! Trabalhamos com cobertura de **Chantininho** e topos personalizados. Envie a foto de inspiração para avaliarmos o modelo!"
+  }
+]
