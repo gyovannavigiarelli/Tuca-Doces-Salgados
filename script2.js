@@ -1,5 +1,5 @@
 /**
- * Chatbot Widget Auto-Injetável - Versão com Paleta Vermelho e Rosa (#D32F2F / #FCE4EC)
+- Chatbot Widget Auto-Injetável - Versão com Paleta Vermelho e Rosa Original (#D32F2F / #FCE4EC)
  */
 (function () {
   // Evita inicialização duplicada na página
@@ -13,7 +13,7 @@
       position: fixed !important;
       bottom: 20px !important;
       right: 20px !important;
-      z-index: 99999999 !important;
+      z-index: 2147483647 !important;
     }
 
     #faq-toggle-btn {
@@ -29,6 +29,12 @@
       align-items: center !important;
       justify-content: center !important;
       outline: none !important;
+      transition: transform 0.2s ease !important;
+      z-index: 2147483647 !important;
+    }
+
+    #faq-toggle-btn:hover {
+      transform: scale(1.05) !important;
     }
 
     #faq-toggle-btn svg {
@@ -52,11 +58,16 @@
       display: flex !important;
       flex-direction: column !important;
       overflow: hidden !important;
-      z-index: 99999999 !important;
+      z-index: 2147483647 !important;
     }
 
-    .faq-hidden {
+    /* Blindagem para garantir que fique oculto quando minimizado */
+    #faq-chat-window.faq-hidden,
+    #faq-chat-window[hidden] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
     }
 
     .faq-header {
@@ -66,12 +77,16 @@
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
+      position: relative !important;
+      z-index: 2147483647 !important;
     }
 
     .faq-header-actions {
       display: flex !important;
       align-items: center !important;
       gap: 10px !important;
+      position: relative !important;
+      z-index: 2147483647 !important;
     }
 
     .faq-header h3 {
@@ -81,20 +96,26 @@
     }
 
     .faq-icon-btn {
-      background: transparent !important;
-      border: none !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
       color: #ffffff !important;
-      font-size: 18px !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
       cursor: pointer !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 2px !important;
-      opacity: 0.85;
+      width: 30px !important;
+      height: 30px !important;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      outline: none !important;
+      transition: background 0.2s ease !important;
+      z-index: 2147483647 !important;
     }
 
     .faq-icon-btn:hover {
-      opacity: 1;
+      background: rgba(255, 255, 255, 0.3) !important;
     }
 
     #faq-messages {
@@ -212,9 +233,9 @@
     }
   `;
 
-  // 2. ESTRUTURA HTML
+  // 2. ESTRUTURA HTML (Inicia minimizado)
   const htmlTemplate = `
-    <button id="faq-toggle-btn" type="button" aria-label="Abrir Chatbot">
+    <button id="faq-toggle-btn" type="button" aria-label="Abrir Chatbot" title="Abrir Chat">
       <svg id="faq-icon-open" viewBox="0 0 24 24">
         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
       </svg>
@@ -223,13 +244,13 @@
       </svg>
     </button>
 
-    <div id="faq-chat-window" class="faq-hidden">
+    <div id="faq-chat-window" class="faq-hidden" hidden style="display: none !important;">
       <div class="faq-header">
         <h3>Atendimento Virtual</h3>
         <div class="faq-header-actions">
           <label for="faq-json-file" class="faq-icon-btn" title="Anexar base JSON extra">📁</label>
           <input type="file" id="faq-json-file" accept=".json" style="display: none;" />
-          <button type="button" id="faq-close-btn" class="faq-icon-btn">✕</button>
+          <button type="button" id="faq-close-btn" class="faq-icon-btn" title="Fechar">✕</button>
         </div>
       </div>
       <div id="faq-messages"></div>
@@ -280,6 +301,41 @@
     const input = document.getElementById("faq-input");
     const jsonFileInput = document.getElementById("faq-json-file");
 
+    function abrirChat() {
+      chatWindow.classList.remove("faq-hidden");
+      chatWindow.removeAttribute("hidden");
+      chatWindow.style.setProperty("display", "flex", "important");
+      iconOpen.style.display = "none";
+      iconClose.style.display = "block";
+      input.focus();
+      rolarParaOFinal();
+    }
+
+    function minimizarChat(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      chatWindow.classList.add("faq-hidden");
+      chatWindow.setAttribute("hidden", "");
+      chatWindow.style.setProperty("display", "none", "important");
+      iconOpen.style.display = "block";
+      iconClose.style.display = "none";
+    }
+
+    function toggleChat(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const estaFechado = chatWindow.classList.contains("faq-hidden") || chatWindow.hasAttribute("hidden");
+      if (estaFechado) {
+        abrirChat();
+      } else {
+        minimizarChat();
+      }
+    }
+
     function rolarParaOFinal() {
       setTimeout(() => {
         messagesBox.scrollTop = messagesBox.scrollHeight;
@@ -308,7 +364,6 @@
       const optsContainer = document.createElement("div");
       optsContainer.className = "faq-options";
 
-      // Exibe até 6 itens principais como opções rápidas no menu
       const itensMenu = baseConhecimento.slice(0, 6);
       itensMenu.forEach(item => {
         const titulo = item.titulo || item.pergunta || "Dúvida";
@@ -383,21 +438,6 @@
       }, 300);
     }
 
-    function toggleChat() {
-      const estaFechado = chatWindow.classList.contains("faq-hidden");
-      if (estaFechado) {
-        chatWindow.classList.remove("faq-hidden");
-        iconOpen.style.display = "none";
-        iconClose.style.display = "block";
-        input.focus();
-        rolarParaOFinal();
-      } else {
-        chatWindow.classList.add("faq-hidden");
-        iconOpen.style.display = "block";
-        iconClose.style.display = "none";
-      }
-    }
-
     // Carregar JSON via parâmetro opcional
     if (opcoes.jsonUrl) {
       fetch(opcoes.jsonUrl)
@@ -409,7 +449,7 @@
             addMessage(`📂 Base extra carregada (${dados.length} itens)`, "system-info");
           }
         })
-        .catch(err => console.error("Erro ao carregar JSON:", err));
+        .catch(err => console.warn("Aviso: JSON externo não carregado (restrição CORS local).", err));
     }
 
     // Carregar JSON via Upload
@@ -433,7 +473,12 @@
     });
 
     toggleBtn.addEventListener("click", toggleChat);
-    closeBtn.addEventListener("click", toggleChat);
+    
+    // Suporte a múltiplos eventos de clique para o botão fechar/minimizar
+    ["click", "pointerup", "touchend"].forEach(eventType => {
+      closeBtn.addEventListener(eventType, minimizarChat);
+    });
+
     sendBtn.addEventListener("click", dispararEnvio);
 
     input.addEventListener("keydown", function(e) {
@@ -444,7 +489,8 @@
       }
     });
 
-    // Renderiza o menu inicial na montagem
+    // Garante inicialização limpa minimizada e menu pronto
+    minimizarChat();
     carregarMenuInicial();
   };
 
